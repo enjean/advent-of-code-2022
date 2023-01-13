@@ -1,6 +1,7 @@
 package day3
 
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtensionContext
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
@@ -29,5 +30,21 @@ class Day3KtTest {
                 Arguments.of("ttgJtRGJQctTZtZT", 20),
                 Arguments.of("CrZsJsPPZsGzwwsLwLmpwMDw", 19),
             )
+    }
+
+    @Test
+    fun `find badge priorities`() {
+        val input = listOf(
+            "vJrwpWtwJgWrhcsFMMfFFhFp",
+            "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL",
+            "PmmdzqPrVvPwwTWBwg",
+            "wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn",
+            "ttgJtRGJQctTZtZT",
+            "CrZsJsPPZsGzwwsLwLmpwMDw",
+        )
+
+        val result = findBadgePriorities(input)
+
+        assertEquals(70, result)
     }
 }
