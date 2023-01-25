@@ -20,4 +20,7 @@ fun main() {
 
     val countOfFullyContained = assignments.count(PairSectionAssignment::oneAssignmentContainsTheOther)
     println("Part 1 = $countOfFullyContained")
+
+    val countOfOverlaps = assignments.count(PairSectionAssignment::hasOverlap)
+    println("Part 2 = $countOfOverlaps")
 }
