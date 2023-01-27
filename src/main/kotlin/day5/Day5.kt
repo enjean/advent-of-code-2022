@@ -53,6 +53,24 @@ fun calculateTopCratesAfterMoving(
     return String(topCrates.toCharArray())
 }
 
+fun calculateTopCratesAfterMoving2(
+    startingStacks: List<List<Char>>,
+    instructions: List<Instruction>,
+): String {
+    val stacks = startingStacks.map { it.toMutableList() }
+    instructions.forEach { instruction ->
+        val fromStack = stacks[instruction.fromStack - 1]
+        val toStack = stacks[instruction.toStack - 1]
+
+        val removeStartingFrom = fromStack.size - instruction.numToMove
+        repeat(instruction.numToMove) {
+            toStack.add(fromStack.removeAt(removeStartingFrom))
+        }
+    }
+    val topCrates = stacks.map { it.last() }
+    return String(topCrates.toCharArray())
+}
+
 fun main() {
     val parseGroups = ParseUtil.parseGroups(ParseUtil.inputLines(5))
 
@@ -60,6 +78,8 @@ fun main() {
     val instructions = parseInstructions(parseGroups[1])
 
     val endResult = calculateTopCratesAfterMoving(startingStacks, instructions)
-
     println("Part 1 = $endResult")
+
+    val crateMover9001Result = calculateTopCratesAfterMoving2(startingStacks, instructions)
+    println("Part 2 = $crateMover9001Result")
 }

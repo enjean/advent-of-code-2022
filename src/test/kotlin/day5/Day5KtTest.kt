@@ -35,6 +35,14 @@ class Day5KtTest {
         assertEquals("CMZ", result)
     }
 
+    @Test
+    fun `calculate top crates after moving - CrateMover 9001`() {
+        val result = calculateTopCratesAfterMoving2(sampleStartingStacks, sampleInstructions)
+
+        assertEquals("MCD", result)
+    }
+
+
     companion object {
         private val sampleStartingStacks = listOf(
                 listOf('Z', 'N'),
